@@ -8,9 +8,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static tddmicroexercises.leaderboard.TestData.driver1;
-import static tddmicroexercises.leaderboard.TestData.driver2;
-import static tddmicroexercises.leaderboard.TestData.driver3;
+import static tddmicroexercises.leaderboard.TestData.*;
 
 public class LeaderboardTest {
 
@@ -35,6 +33,24 @@ public class LeaderboardTest {
 
         // verify
         assertEquals("Lewis Hamilton", result.get(0));
+    }
+
+    @Test
+    public void keep_the_driver_name() {
+        final String raceName = "race name";
+        driver4.setAlgorithmVersion("1.3");
+        Race race = new Race(raceName, driver1, driver2, driver3, driver4);
+
+        assertEquals(raceName, race.toString());
+    }
+
+    @Test
+    public void keep_the_self_driver_name() {
+        final String raceName = "race name";
+        driver4.setAlgorithmVersion("1.3");
+        Race race = new Race(raceName, driver1, driver2, driver3, driver4);
+
+        assertEquals(raceName, race.toString());
     }
 
     @Test
